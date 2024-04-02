@@ -9,7 +9,7 @@ atividade = "2"
 -- tuplas de inteiros  são múltiplas.
 isMult :: (Int,Int) -> (Int, Int) -> Bool
 isMult u v = (fst u * snd v) == (fst v * snd u)
-   
+
 -- 2
 -- Sejam todos os triângulos retângulos
 -- de perímetro p e de lados inteiros.
@@ -18,4 +18,6 @@ isMult u v = (fst u * snd v) == (fst v * snd u)
 --  função que determine 
 -- o total destes triângulos dado p .
 tot'tri  :: Int -> Int
-tot'tri p = length [(a, b, c) | a <- [1..p], b <- [1..a], c <- [1..b], (a^2 == b^2 + c^2) && (c + b + a <= p)]
+tot'tri p = length [(a, b, c) |  b <- [1..(div p 2)], c <- [1..b], let a = p-b-c, a*a==b*b+c*c]
+
+
